@@ -1,0 +1,131 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .form-container {
+    width: 300px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-toggle button {
+    background-color: transparent;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+    text-decoration: underline;
+  }
+  
+  .login-form,
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-form input,
+  .signup-form input,
+  .login-form button,
+  .signup-form button {
+    margin-bottom: 10px;
+  }
+  
+  .form-enter {
+    opacity: 0;
+    transform: scale(0);
+  }
+  
+  .form-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 300ms, transform 300ms;
+  }
+  
+  .form-exit {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .form-exit-active {
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 300ms, transform 300ms;
+  }.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .form-container {
+    width: 300px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-toggle button {
+    background-color: transparent;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+    text-decoration: underline;
+  }
+  
+  .login-form,
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-form input,
+  .signup-form input,
+  .login-form button,
+  .signup-form button {
+    margin-bottom: 10px;
+  }
+  
+  .form-enter {
+    opacity: 0;
+    transform: scale(0);
+  }
+  
+  .form-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 300ms, transform 300ms;
+  }
+  
+  .form-exit {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .form-exit-active {
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 300ms, transform 300ms;
+  }

@@ -1,0 +1,19 @@
+.column {
+    float: left;
+    width: 50%;
+  }
+  
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.qs{
+    margin:20px;
+}
+
+.code{
+    border: 2px solid grey;
+    margin: 15px;
+}

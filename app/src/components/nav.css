@@ -1,0 +1,36 @@
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  font-weight: bolder;
+}
+
+.navbar li {
+    text-align: center;
+  color: #333;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
+  -ms-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+}
+
+.navbar li a:hover {
+  background-color: #ddd;
+}
+
+.navbar-right {
+  float: right;
+}
+
+img {
+  width: 30px;
+  height:30px;
+}
+
+.log_btn{
+    border: none;
+}
