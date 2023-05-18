@@ -1,3 +1,12 @@
+.root{
+  background: url("../icons/bg.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  border:5px solid rgb(21, 21, 21);
+}
+
 .container {
   text-align: center;
 }

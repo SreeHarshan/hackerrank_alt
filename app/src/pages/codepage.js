@@ -6,7 +6,7 @@ import "./codepage.css";
 
 function CodePage() {
     return (
-        <div>
+        <div class="root">
             <Layout/>
             <div class="row">
                 <div class="column"><p class="qs">This the question. You have to type the code on the right side and press the compile button</p></div>

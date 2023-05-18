@@ -8,7 +8,7 @@ import "./home.css";
 function Home() {
 
     return (
-        <div >
+        <div class="root">
 
             <Layout />
             <div class="container">

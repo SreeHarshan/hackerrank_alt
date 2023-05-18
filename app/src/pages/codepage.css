@@ -9,6 +9,11 @@
     clear: both;
 }
 
+.row{
+    background-color: white;
+    margin: 20px;
+}
+
 .qs{
     margin:20px;
 }
