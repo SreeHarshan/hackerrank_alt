@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import React, {   } from 'react';
 
 import "./nav.css";
 import login from "../icons/enter.png"
 
-const Layout = () => {
-    const username = "Login here";
+
+const Layout = ({username}) => {
     return (
         <nav>
             <div class="navbar">

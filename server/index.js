@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3001
 
+const cors = require('cors')
+app.use(cors())
+
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://harshan:2qWouluUfy0AU0sX@cluster0.c1rpxhj.mongodb.net/?retryWrites=true&w=majority";
 
@@ -39,7 +42,7 @@ app.get("/register",async(req,res)=>{
     const result = await Col.insertOne(doc);
     console.log(`A document was inserted with the _id: ${result.insertedId}`,);
     await client.close();
-    res.send("Successfully inserted");
+    res.send({msg:"Successfully inserted",regsiter:true});
 })
 
 app.get("/login",async(req,res)=>{
@@ -55,20 +58,18 @@ app.get("/login",async(req,res)=>{
 //    const cursor = Col.find();
     const doc = await cursor.toArray();
     if(doc[0]["password"]===password){
-        res.send("Successfully logged in ");
+        res.send({msg:"Successfully logged in",login:true});
     }
     else{
-        res.send("Login failed");
+        res.send({msg:"Login failed",login:false});
     }
     await client.close();
 
     
 })
 
-
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get("/getcontest",async(req,res)=>{
+    console.log("getcontest"); 
 })
 
 

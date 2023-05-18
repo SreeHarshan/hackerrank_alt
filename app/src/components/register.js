@@ -1,6 +1,6 @@
 import React, { useState, } from 'react';
 
-import './login.css';
+import './register.css';
 
 
 const LoginPage = ({setusername}) => {
@@ -14,7 +14,7 @@ const LoginPage = ({setusername}) => {
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
-      var link = `http://localhost:3001/login?name=${username}&password=${password}`
+      var link = `http://localhost:3001/register?name=${username}&password=${password}`
       console.log(link);
       const response = await fetch(link, {
         method: 'GET',
@@ -27,13 +27,12 @@ const LoginPage = ({setusername}) => {
         throw new Error(`Error! status: ${response.status}`);
       }
       const result = await response.json();
-      if (result["login"]) {
+      if (result["register"]) {
         setusername(username);
-        console.log("setting username");
         window.location.href = '/';
       }
       else{
-        alert("password is false");
+        alert("failed to register");
       }
 
       console.log('result is: ', JSON.stringify(result, null, 4));
@@ -53,13 +52,13 @@ const LoginPage = ({setusername}) => {
     <div class="container2">
       {err && <h2>{err}</h2>}
       {isLoading && <h2>Loading...</h2>}
-      <h1>Login</h1>
+      <h1>Register</h1>
       <div class="form">
         <input type="text" placeholder="Username" id="username" />
         <input type="password" placeholder="Password" id="password" />
+        <input type="password" placeholder="Confirm Password" id="cpassword" />
         <input type="submit" value="Submit" id="submit-btn" onClick={login} />
         <a href="/" class="back">Back</a>
-        <a href="/signup" class="signup">New user? Sign up now</a>
       </div>
     </div>
   );
@@ -67,4 +66,3 @@ const LoginPage = ({setusername}) => {
 
 
 export default LoginPage;
-

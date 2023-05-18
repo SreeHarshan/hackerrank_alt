@@ -5,12 +5,12 @@ import '../icons/lake.jpg';
 
 import "./home.css";
 
-function Home() {
+function Home({username}) {
 
     return (
         <div class="root">
 
-            <Layout />
+            <Layout username={username}/>
             <div class="container">
                 <h1  > Eat sleep</h1>
                 <h3>
@@ -18,8 +18,8 @@ function Home() {
                 </h3>
             </div>
             <div class="row2">
-                <button class="button">Sign up</button>
-                <button class="button2">Login</button>
+                <a class="button" href="/signup">Sign up</a>
+                <a class="button2" href="/login" >Login</a>
             </div>
         </div>
     );

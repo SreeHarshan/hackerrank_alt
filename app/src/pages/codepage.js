@@ -4,10 +4,10 @@ import Code from '../components/code';
 import Layout from '../components/nav';
 import "./codepage.css";
 
-function CodePage() {
+function CodePage({username}) {
     return (
         <div class="root">
-            <Layout/>
+            <Layout username={username}/>
             <div class="row">
                 <div class="column"><p class="qs">This the question. You have to type the code on the right side and press the compile button</p></div>
                 <div class="column" >
