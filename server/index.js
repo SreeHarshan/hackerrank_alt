@@ -2,9 +2,17 @@ const express = require('express')
 const app = express()
 const port = 3001
 
-const cors = require('cors')
-app.use(cors())
+//py  shell
+let {PythonShell} = require('python-shell')
 
+//cors
+const cors = require('cors');
+app.use(cors());
+
+//post
+app.use(express.json());
+
+//mongodb
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://harshan:2qWouluUfy0AU0sX@cluster0.c1rpxhj.mongodb.net/?retryWrites=true&w=majority";
 
@@ -17,6 +25,8 @@ const client = new MongoClient(uri, {
   }
 });
 
+
+//temp function to check connection with db
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
@@ -114,6 +124,30 @@ app.get("/join",async(req,res)=>{
     const doc = await cursor.toArray();
     await client.close();
 
+})
+
+//temp to check module
+app.get("/pytest",(req,res)=>{
+    var str=`
+if(5>3):
+    print('hello')
+else:
+    print('hello2')        
+    `
+    PythonShell.runString(str, null).then(messages=>{
+        res.send({"output":messages});
+    });
+})
+
+//compile the code
+app.post('/compile', function (req, res) {  
+    console.log("compiling");
+    var str = req.body.code;
+    console.log(str);
+    PythonShell.runString(str, null).then(messages=>{
+       res.send({"output":messages,"run":true});
+    });
+    //res.send({"output":"","run":false});
 })
 
 app.listen(port, () => {

@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
   list-style-type: none;
   padding: 0;
   background-color: #f2f2f209;
@@ -6,17 +6,20 @@
   margin: 0px 10px;
 }
 
-ul{
-  border:2px rgb(36, 36, 36) solid;
+ul {
+  border: 2px rgb(36, 36, 36) solid;
 }
 
-.navbar li,.navbar li a{
+.navbar li,
+.navbar li a,
+.navitem {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   color: #ddd;
 }
-.navbar li a:hover {
+.navbar li a:hover,
+.log_btn:hover {
   background-color: #a3a3a3;
   color: black;
 }
@@ -26,10 +29,12 @@ img {
   height: auto;
 }
 
-.navright{
-  float:right;
+.navright {
+  float: right;
+  /*  margin-top:15px;*/
 }
 
 .log_btn {
   border: none;
+  background-color: rgba(0, 0, 0, 0);
 }
