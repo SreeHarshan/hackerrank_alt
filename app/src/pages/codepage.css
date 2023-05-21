@@ -10,12 +10,14 @@
 }
 
 .row{
-    background-color: white;
+    background-color: rgba(126, 126, 126, 0.645);
     margin: 20px;
 }
 
 .qs{
     margin:20px;
+    font-size: 1.25rem;
+    white-space: pre-wrap;
 }
 
 .code{

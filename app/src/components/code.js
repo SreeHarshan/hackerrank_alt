@@ -6,7 +6,7 @@ import "./code.css";
 function code() {
     return (
         <div>
-            <Editor height="50vh" language="javascript" value="console.log('Hello, World!');" />
+            <Editor theme="vs-dark" height="70vh" language="javascript" value="console.log('Hello, World!');" />
             <button class="compile_btn">Compile</button>
         </div>
     );

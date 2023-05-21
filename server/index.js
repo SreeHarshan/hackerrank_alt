@@ -42,7 +42,7 @@ app.get("/register",async(req,res)=>{
     const result = await Col.insertOne(doc);
     console.log(`A document was inserted with the _id: ${result.insertedId}`,);
     await client.close();
-    res.send({msg:"Successfully inserted",regsiter:true});
+    res.send({msg:"Successfully inserted",register:true});
 })
 
 app.get("/login",async(req,res)=>{
@@ -69,11 +69,54 @@ app.get("/login",async(req,res)=>{
 })
 
 app.get("/getcontest",async(req,res)=>{
-    console.log("getcontest"); 
+        await client.connect();
+    await client.db("admin").command({ ping: 1 });
+    const myDB = client.db("cred");
+    const Col = myDB.collection("cred");
+    c_name  = req.query.c_name;
+//    console.log(username);
+    const cursor =  Col.find({"c_name": c_name});
+//    const cursor = Col.find();
+    const doc = await cursor.toArray();
+    await client.close();
+
+})
+
+app.get("/addcontest",async(req,res)=>{
+        await client.connect();
+    await client.db("admin").command({ ping: 1 });
+    const myDB = client.db("cred");
+    const Col = myDB.collection("cred");
+    c_name  = req.query.name;
+    c_id = req.query.c_id;
+    owner = req.query.owner;
+//    console.log(username);
+    const cursor =  Col.insertOne({"c_name": c_name,"c_id":c_id,"owner":owner});
+//    const cursor = Col.find();
+    const doc = await cursor.toArray();
+    await client.close();
+
 })
 
 
+
+app.get("/join",async(req,res)=>{
+        await client.connect();
+    await client.db("admin").command({ ping: 1 });
+    const myDB = client.db("cred");
+    const Col = myDB.collection("cred");
+    uname  = req.query.name;
+    c_id = req.query.c_id;
+    owner = req.query.owner;
+//    console.log(username);
+    const cursor =  Col.insertOne({"c_id":c_id,"name":uname});
+//    const cursor = Col.find();
+    const doc = await cursor.toArray();
+    await client.close();
+
+})
+
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Server listening on port ${port}`)
 })
 

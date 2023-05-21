@@ -1,9 +1,11 @@
 import React, { useState, } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import './login.css';
 
 
 const LoginPage = ({setusername}) => {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState('');
 
@@ -30,7 +32,9 @@ const LoginPage = ({setusername}) => {
       if (result["login"]) {
         setusername(username);
         console.log("setting username");
-        window.location.href = '/';
+        const data = { username: username };
+//        window.location.href = '/';
+        navigate("/", { state: data });
       }
       else{
         alert("password is false");

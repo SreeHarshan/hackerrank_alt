@@ -1,6 +1,6 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {useState,} from 'react';
+import { BrowserRouter, Routes, Route,  } from "react-router-dom";
+import { useState, } from 'react';
 import Home from './pages/home.js';
 import CodePage from './pages/codepage.js';
 import Login from './components/login';
@@ -11,10 +11,10 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<Home username={username}/>}/>
-				<Route path="/CodePage" element={<CodePage username={username}/>} />
-				<Route path="/login" element={<Login setusername={setusername}/>}/>
-				<Route path="/signup" element={<Register setusername={setusername}/>}/>
+				<Route path="/" element={<Home username={username} />} />
+				<Route path="/CodePage" element={<CodePage username={username} />} />
+				<Route path="/login" element={<Login setusername={setusername} />} />
+				<Route path="/signup" element={<Register setusername={setusername} />} />
 			</Routes>
 		</BrowserRouter>
 	);

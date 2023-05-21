@@ -1,16 +1,19 @@
 import React from 'react';
+import { useLocation } from "react-router-dom";
 import Layout from '../components/nav';
 
 import '../icons/lake.jpg';
 
 import "./home.css";
 
-function Home({username}) {
-
+function Home({ username }) {
+    const location = useLocation();
+    const data = location.state;
+    console.log(username);
     return (
         <div class="root">
 
-            <Layout username={username}/>
+            <Layout username={data!=null?data.username:"Login here"} />
             <div class="container">
                 <h1  > Eat sleep</h1>
                 <h3>
