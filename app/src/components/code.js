@@ -50,7 +50,7 @@ function Code(props) {
         <div class="code-container">
             <Editor onChange={e => { editor = e; }} theme="vs-dark" height="70vh" language="python" value="print('Hello, World!')" />
             <button class="compile_btn" onClick={compile}>Compile</button>
-            {output != null && <p>{output}</p>}
+            {output != null && <p class="output">{output}</p>}
         </div>
     );
 }

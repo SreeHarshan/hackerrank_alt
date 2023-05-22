@@ -11,14 +11,17 @@ ul {
 }
 
 .navbar li,
-.navbar li a,
+.navbar li button,
 .navitem {
+  font-size: 1.1rem;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   color: #ddd;
+  background-color: transparent;
+  border:none;
 }
-.navbar li a:hover,
+.navbar li button:hover,
 .log_btn:hover {
   background-color: #a3a3a3;
   color: black;

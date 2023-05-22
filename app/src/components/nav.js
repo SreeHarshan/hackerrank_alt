@@ -6,11 +6,12 @@ import "./nav.css";
 import LoginImg from "../icons/enter.png"
 
 
-const Layout = ({username}) => {
+const Layout = ({data}) => {
 
-    const location = useLocation();
-    var data = location.state;
     const navigate = useNavigate();
+    if(data==null){
+        data={username:"Login here"};
+    }
 
     const loginf = () => {
         if (data == null)
@@ -18,22 +19,34 @@ const Layout = ({username}) => {
         navigate("/login", { state: data });
     };
 
+    const contestf = () => {
+        navigate("/contest",{state:data});
+    }
+
+    const codef = () => {
+        navigate("/code",{state:data});
+    }
+
+    const homef = () => {
+        navigate("/",{state:data});
+    }
+
 
     return (
         <nav>
             <div class="navbar">
                 <ul>
                     <li>
-                        <Link class="navitem" to="/">Home</Link>
+                        <button class="navitem" onClick={homef}>Home</button>
                     </li>
                     <li>
-                        <Link class="navbaritem" to="/CodePage">Code</Link>
+                        <button class="navbaritem" onClick={codef}>Code</button>
                     </li>
                     <li>
-                        <Link class="navbaritem" to="/contest">Contest</Link>
+                        <button class="navbaritem" onClick={contestf}>Contest</button>
                     </li>
                     <div class="navright">
-                        <li class="navitem">{username}</li>
+                        <li class="navitem">{data.username}</li>
                         <li style={{ paddingTop: 5 }}><button class="log_btn navitem" onClick={loginf}><img src={LoginImg} alt="img" /></button></li>
                     </div>
                 </ul>

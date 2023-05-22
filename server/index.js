@@ -78,16 +78,17 @@ app.get("/login",async(req,res)=>{
     
 })
 
-app.get("/getcontest",async(req,res)=>{
+app.get("/getcontests",async(req,res)=>{
+    console.log("getcontest");
         await client.connect();
     await client.db("admin").command({ ping: 1 });
     const myDB = client.db("cred");
-    const Col = myDB.collection("cred");
-    c_name  = req.query.c_name;
+    const Col = myDB.collection("contests");
 //    console.log(username);
-    const cursor =  Col.find({"c_name": c_name});
+    const cursor =  Col.find();
 //    const cursor = Col.find();
     const doc = await cursor.toArray();
+    res.send({output:doc});
     await client.close();
 
 })
@@ -96,30 +97,32 @@ app.get("/addcontest",async(req,res)=>{
         await client.connect();
     await client.db("admin").command({ ping: 1 });
     const myDB = client.db("cred");
-    const Col = myDB.collection("cred");
+    const Col = myDB.collection("contests");
     c_name  = req.query.name;
-    c_id = req.query.c_id;
+    c_desc = req.query.c_desc;
     owner = req.query.owner;
 //    console.log(username);
-    const cursor =  Col.insertOne({"c_name": c_name,"c_id":c_id,"owner":owner});
+    const cursor =  Col.insertOne({"ContestName": c_name,"ContestDesc":c_desc,"ContestOwner":owner});
 //    const cursor = Col.find();
     const doc = await cursor.toArray();
+    res.send(doc);
     await client.close();
 
 })
 
 
 
-app.get("/join",async(req,res)=>{
-        await client.connect();
+app.get("/getqs",async(req,res)=>{
+    console.log("get qs");
+    await client.connect();
     await client.db("admin").command({ ping: 1 });
     const myDB = client.db("cred");
-    const Col = myDB.collection("cred");
+    const Col = myDB.collection("contest");
     uname  = req.query.name;
-    c_id = req.query.c_id;
-    owner = req.query.owner;
+    contest_name = req.query.ContestName;
+
 //    console.log(username);
-    const cursor =  Col.insertOne({"c_id":c_id,"name":uname});
+    const cursor =  Col.find({"ContestName":contest_name});
 //    const cursor = Col.find();
     const doc = await cursor.toArray();
     await client.close();

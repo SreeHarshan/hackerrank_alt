@@ -20,7 +20,7 @@ function Home({ username }) {
     return (
         <div class="root">
 
-            <Layout username={(data != null && data.login) ? data.username : "Login here"} />
+            <Layout data={data}  />
             <div class="container">
                 <h1  > Eat sleep</h1>
                 <h3>
