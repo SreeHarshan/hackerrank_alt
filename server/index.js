@@ -118,13 +118,13 @@ app.get("/getqs",async(req,res)=>{
     await client.db("admin").command({ ping: 1 });
     const myDB = client.db("cred");
     const Col = myDB.collection("contest");
-    uname  = req.query.name;
     contest_name = req.query.ContestName;
 
 //    console.log(username);
     const cursor =  Col.find({"ContestName":contest_name});
 //    const cursor = Col.find();
     const doc = await cursor.toArray();
+    res.send({"qs":doc[0]});
     await client.close();
 
 })

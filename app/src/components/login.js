@@ -1,5 +1,6 @@
 import React, { useState, } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
+import Loading from './loading';
 
 import './login.css';
 
@@ -62,7 +63,7 @@ const LoginPage = ({ setusername }) => {
     return (
       <div class="container2">
         {err && <h2>{err}</h2>}
-        {isLoading && <h2>Loading...</h2>}
+        {isLoading && <Loading/>}
         <h1>Login</h1>
         <div class="form">
           <input type="text" placeholder="Username" id="username" />
